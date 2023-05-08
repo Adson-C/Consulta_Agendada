@@ -2,6 +2,7 @@ package med.voll.api.controller;
 
 import jakarta.validation.Valid;
 import med.voll.api.domain.consulta.AgendaDeConsultas;
+import med.voll.api.domain.consulta.DadoCancelamentoConsultas;
 import med.voll.api.domain.consulta.DadosAgendamnetosConsultas;
 import med.voll.api.domain.consulta.DadosdetalhamentoConsultas;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,4 +26,10 @@ public class ConsultasController {
         agenda.agendar(dados);
         return ResponseEntity.ok(new DadosdetalhamentoConsultas(null, null, null, null));
     }
+
+    public ResponseEntity cancelar(@RequestBody @Valid DadoCancelamentoConsultas dados) {
+        agenda.cancelar(dados);
+        return ResponseEntity.noContent().build();
+    }
+
 }
