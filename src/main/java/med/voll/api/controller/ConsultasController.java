@@ -16,9 +16,6 @@ public class ConsultasController {
     @Autowired
     private AgendaDeConsultas agenda;
 
-    @Autowired
-    private ConsultaRepository consultaRepository;
-
     @PostMapping
     @Transactional
     public ResponseEntity agendar(@RequestBody @Valid DadosAgendamnetosConsultas dados) {
